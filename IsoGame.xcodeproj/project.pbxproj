@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		550ADBE21A68E68F007B858A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550ADBE11A68E68F007B858A /* AppDelegate.swift */; };
-		550ADBE41A68E68F007B858A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 550ADBE31A68E68F007B858A /* GameScene.sks */; };
 		550ADBE61A68E68F007B858A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550ADBE51A68E68F007B858A /* GameScene.swift */; };
 		550ADBE81A68E68F007B858A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550ADBE71A68E68F007B858A /* GameViewController.swift */; };
 		550ADBEB1A68E68F007B858A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 550ADBE91A68E68F007B858A /* Main.storyboard */; };
 		550ADBED1A68E690007B858A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550ADBEC1A68E690007B858A /* Images.xcassets */; };
 		550ADBF01A68E690007B858A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550ADBEE1A68E690007B858A /* LaunchScreen.xib */; };
 		550ADBFC1A68E690007B858A /* IsoGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550ADBFB1A68E690007B858A /* IsoGameTests.swift */; };
+		55D12AD61A71D9D000A690E9 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 55D12AD51A71D9D000A690E9 /* sprites.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,6 @@
 		550ADBDC1A68E68F007B858A /* IsoGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IsoGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		550ADBE01A68E68F007B858A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550ADBE11A68E68F007B858A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		550ADBE31A68E68F007B858A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		550ADBE51A68E68F007B858A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		550ADBE71A68E68F007B858A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		550ADBEA1A68E68F007B858A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +39,7 @@
 		550ADBF51A68E690007B858A /* IsoGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IsoGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		550ADBFA1A68E690007B858A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		550ADBFB1A68E690007B858A /* IsoGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsoGameTests.swift; sourceTree = "<group>"; };
+		55D12AD51A71D9D000A690E9 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				550ADBE11A68E68F007B858A /* AppDelegate.swift */,
-				550ADBE31A68E68F007B858A /* GameScene.sks */,
 				550ADBE51A68E68F007B858A /* GameScene.swift */,
 				550ADBE71A68E68F007B858A /* GameViewController.swift */,
-				550ADBE91A68E68F007B858A /* Main.storyboard */,
 				550ADBEC1A68E690007B858A /* Images.xcassets */,
+				55D12AD51A71D9D000A690E9 /* sprites.atlas */,
+				550ADBE91A68E68F007B858A /* Main.storyboard */,
 				550ADBEE1A68E690007B858A /* LaunchScreen.xib */,
 				550ADBDF1A68E68F007B858A /* Supporting Files */,
 			);
@@ -200,7 +200,7 @@
 			files = (
 				550ADBF01A68E690007B858A /* LaunchScreen.xib in Resources */,
 				550ADBED1A68E690007B858A /* Images.xcassets in Resources */,
-				550ADBE41A68E68F007B858A /* GameScene.sks in Resources */,
+				55D12AD61A71D9D000A690E9 /* sprites.atlas in Resources */,
 				550ADBEB1A68E68F007B858A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +413,7 @@
 				550ADC011A68E690007B858A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		550ADC021A68E690007B858A /* Build configuration list for PBXNativeTarget "IsoGameTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +422,7 @@
 				550ADC041A68E690007B858A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
