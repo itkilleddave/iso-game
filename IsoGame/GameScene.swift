@@ -29,7 +29,7 @@ enum Tile: Int {
         case Grass:
             return "grass"
         case Wall:
-            return "wall_n"
+            return "wall"
             
         }
     }
@@ -103,20 +103,12 @@ class GameScene: SKScene {
             for j in 0..<row.count {
                 let tileInt = row[j]
                 
-                //1. assign a new Tile enum, setting it's type via the tileInt value
+                //1
                 let tile = Tile(rawValue: tileInt)!
                 
-                //2. inverted y value (Sprite Kit coordinate system) we want tiles stacked left to right, then top to bottom
+                //2
                 var point = CGPoint(x: (j*tileSize.width), y: -(i*tileSize.height))
-                
-                //if this is the hero tile (add an extra tile at this smae position underneath of the default ground tile)
-                /*
-                if (tile.description == "Hero North") {
-                    let tileUnderHero = Tile.Grass
-                    placeTile2D((tileUnderHero.image), withPosition:point)
-                }
-                */
-                
+                                
                 placeTile2D(tile.image, withPosition:point)
             }
             
