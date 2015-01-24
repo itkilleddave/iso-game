@@ -1,14 +1,13 @@
 //
-//  GameScene.swift
+//  GameViewController.swift
 //  IsoGame
 //
 //  Created by Dave Longbottom on 16/01/2015.
 //  Copyright (c) 2015 Big Sprite Games. All rights reserved.
 //
 
+import UIKit
 import SpriteKit
-
-// MARK: Tile
 
 enum Tile: Int {
     
@@ -32,9 +31,7 @@ enum Tile: Int {
             return "wall"
             
         }
-    }
-    
-    
+    } 
 }
 
 class GameScene: SKScene {
@@ -50,13 +47,13 @@ class GameScene: SKScene {
     
     //3
     let tiles = [
-                [1, 1, 1, 1, 1, 1],
-                [1 ,0, 0, 0, 0, 1],
-                [1 ,0, 0, 0, 0, 1],
-                [1 ,0, 0, 0, 0, 1],
-                [1 ,0, 0, 0, 0, 1],
-                [1, 1, 1, 1, 1, 1]
-                ]
+        [1, 1, 1, 1, 1, 1],
+        [1 ,0, 0, 0, 0, 1],
+        [1 ,0, 0, 0, 0, 1],
+        [1 ,0, 0, 0, 0, 1],
+        [1 ,0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1]
+    ]
     let tileSize = (width:32, height:32)
     
     //4
@@ -68,7 +65,6 @@ class GameScene: SKScene {
         super.init(size: size)
         self.anchorPoint = CGPoint(x:0.5, y:0.5)
     }
-
     
     //5
     override func didMoveToView(view: SKView) {
@@ -80,7 +76,6 @@ class GameScene: SKScene {
         addChild(viewIso)
         
         placeAllTiles2D()
-        
     }
     
     func placeTile2D(image:String, withPosition:CGPoint) {
@@ -95,7 +90,6 @@ class GameScene: SKScene {
     
     func placeAllTiles2D() {
         
-        //place tiles
         for i in 0..<tiles.count {
             
             let row = tiles[i];
@@ -108,12 +102,11 @@ class GameScene: SKScene {
                 
                 //2
                 var point = CGPoint(x: (j*tileSize.width), y: -(i*tileSize.height))
-                                
+                
                 placeTile2D(tile.image, withPosition:point)
             }
             
         }
         
     }
-    
 }
