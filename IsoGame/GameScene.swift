@@ -126,4 +126,14 @@ class GameScene: SKScene {
         }
         
     }
+    
+    func placeTileIso(image:String, withPosition:CGPoint) {
+        
+        let tileSprite = SKSpriteNode(imageNamed: image)
+        
+        tileSprite.position = withPosition
+        
+        viewIso.addChild(tileSprite)
+        
+    }
 }
