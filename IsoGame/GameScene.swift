@@ -29,14 +29,35 @@ func / (point: CGPoint, scalar: CGPoint) -> CGPoint {
 enum Tile: Int {
     
     case Grass
-    case Wall
+    case Wall_n
+    case Wall_ne
+    case Wall_e
+    case Wall_se
+    case Wall_s
+    case Wall_sw
+    case Wall_w
+    case Wall_nw
     
     var description:String {
         switch self {
         case Grass:
             return "Grass"
-        case Wall:
-            return "Wall"
+        case Wall_n:
+            return "Wall North"
+        case Wall_ne:
+            return "Wall North East"
+        case Wall_e:
+            return "Wall East"
+        case Wall_se:
+            return "Wall South East"
+        case Wall_s:
+            return "Wall South"
+        case Wall_sw:
+            return "Wall South West"
+        case Wall_w:
+            return "Wall West"
+        case Wall_nw:
+            return "Wall North West"
         }
     }
     
@@ -44,9 +65,22 @@ enum Tile: Int {
         switch self {
         case Grass:
             return "grass"
-        case Wall:
-            return "wall"
-            
+        case Wall_n:
+            return "wall_n"
+        case Wall_ne:
+            return "wall_ne"
+        case Wall_e:
+            return "wall_e"
+        case Wall_se:
+            return "wall_se"
+        case Wall_s:
+            return "wall_s"
+        case Wall_sw:
+            return "wall_sw"
+        case Wall_w:
+            return "wall_w"
+        case Wall_nw:
+            return "wall_nw"
         }
     } 
 }
@@ -64,12 +98,12 @@ class GameScene: SKScene {
     
     //3
     let tiles = [
-        [1, 1, 1, 1, 1, 1],
-        [1 ,0, 0, 0, 0, 1],
-        [1 ,0, 0, 0, 0, 1],
-        [1 ,0, 0, 0, 0, 1],
-        [1 ,0, 0, 0, 0, 1],
-        [1, 1, 1, 1, 1, 1]
+        [8, 1, 1, 1, 1, 2],
+        [7 ,0, 0, 0, 0, 3],
+        [7 ,0, 0, 0, 0, 3],
+        [7 ,0, 0, 0, 0, 3],
+        [7 ,0, 0, 0, 0, 3],
+        [6, 5, 5, 5, 5, 4]
     ]
     let tileSize = (width:32, height:32)
     
