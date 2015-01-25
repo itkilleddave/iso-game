@@ -93,6 +93,7 @@ class GameScene: SKScene {
         addChild(viewIso)
         
         placeAllTiles2D()
+        placeAllTilesIso()
     }
     
     func placeTile2D(image:String, withPosition:CGPoint) {
@@ -136,4 +137,57 @@ class GameScene: SKScene {
         viewIso.addChild(tileSprite)
         
     }
+    
+    func placeAllTilesIso() {
+        
+        for i in 0..<tiles.count {
+            
+            let row = tiles[i];
+            
+            for j in 0..<row.count {
+                let tileInt = row[j]
+                
+                let tile = Tile(rawValue: tileInt)!
+                
+                //1
+                var point = point2DToIso(CGPoint(x: (j*tileSize.width), y: -(i*tileSize.height)))
+                
+                //2
+                placeTileIso(("iso_"+tile.image), withPosition:point)
+                
+            }
+        }
+    }
+    
+    func point2DToIso(p:CGPoint) -> CGPoint {
+        
+        //invert y pre conversion
+        var point = p * CGPoint(x:1, y:-1)
+        
+        //convert using algorithm
+        point = CGPoint(x:(point.x - point.y), y: ((point.x + point.y) / 2))
+        
+        //invert y post conversion
+        point = point * CGPoint(x:1, y:-1)
+        
+        return point
+        
+    }
+    func pointIsoTo2D(p:CGPoint) -> CGPoint {
+        
+        //invert y pre conversion
+        var point = p * CGPoint(x:1, y:-1)
+        
+        //convert using algorithm
+        point = CGPoint(x:((2 * point.y + point.x) / 2), y: ((2 * point.y - point.x) / 2))
+        
+        //invert y post conversion
+        point = point * CGPoint(x:1, y:-1)
+        
+        return point
+        
+    }
+    
+    
+    
 }
