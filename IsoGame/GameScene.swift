@@ -28,7 +28,7 @@ func / (point: CGPoint, scalar: CGPoint) -> CGPoint {
 
 enum Tile: Int {
     
-    case Grass
+    case Ground
     case Wall_n
     case Wall_ne
     case Wall_e
@@ -40,8 +40,8 @@ enum Tile: Int {
     
     var description:String {
         switch self {
-        case Grass:
-            return "Grass"
+        case Ground:
+            return "Ground"
         case Wall_n:
             return "Wall North"
         case Wall_ne:
@@ -63,8 +63,8 @@ enum Tile: Int {
     
     var image:String {
         switch self {
-        case Grass:
-            return "grass"
+        case Ground:
+            return "ground"
         case Wall_n:
             return "wall_n"
         case Wall_ne:
@@ -183,11 +183,17 @@ class GameScene: SKScene {
                 
                 let tile = Tile(rawValue: tileInt)!
                 
-                //1
                 var point = point2DToIso(CGPoint(x: (j*tileSize.width), y: -(i*tileSize.height)))
                 
+                //1
+                let randomString = String(Int(arc4random_uniform(UInt32(4))))
+                
                 //2
-                placeTileIso(("iso_"+tile.image), withPosition:point)
+                if (tile == Tile.Ground) {
+                    placeTileIso(("iso_3d_"+tile.image+randomString), withPosition:point)
+                } else {
+                    placeTileIso(("iso_3d_"+tile.image), withPosition:point)
+                }
                 
             }
         }
