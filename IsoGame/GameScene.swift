@@ -120,10 +120,10 @@ class GameScene: SKScene {
     //5
     override func didMoveToView(view: SKView) {
         
-        view2D.position = CGPoint(x:-self.size.width*0.4, y:self.size.height*0.2)
+        view2D.position = CGPoint(x:-self.size.width*0.45, y:self.size.height*0.17)
         addChild(view2D)
         
-        viewIso.position = CGPoint(x:self.size.width*0.18, y:self.size.height*0.2)
+        viewIso.position = CGPoint(x:self.size.width*0.12, y:self.size.height*0.12)
         addChild(viewIso)
         
         placeAllTiles2D()
@@ -135,6 +135,8 @@ class GameScene: SKScene {
         let tileSprite = SKSpriteNode(imageNamed: image)
         
         tileSprite.position = withPosition
+        
+        tileSprite.anchorPoint = CGPoint(x:0, y:0)
         
         view2D.addChild(tileSprite)
         
@@ -168,6 +170,8 @@ class GameScene: SKScene {
         
         tileSprite.position = withPosition
         
+        tileSprite.anchorPoint = CGPoint(x:0, y:0)
+        
         viewIso.addChild(tileSprite)
         
     }
@@ -185,6 +189,7 @@ class GameScene: SKScene {
                 
                 var point = point2DToIso(CGPoint(x: (j*tileSize.width), y: -(i*tileSize.height)))
                 
+                /*
                 //1
                 let randomString = String(Int(arc4random_uniform(UInt32(4))))
                 
@@ -194,6 +199,9 @@ class GameScene: SKScene {
                 } else {
                     placeTileIso(("iso_3d_"+tile.image), withPosition:point)
                 }
+                */
+                
+                placeTileIso(("iso_3d_"+tile.image), withPosition:point)
                 
             }
         }
