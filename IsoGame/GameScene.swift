@@ -37,6 +37,14 @@ enum Tile: Int {
     case Wall_sw
     case Wall_w
     case Wall_nw
+    case Droid_n
+    case Droid_ne
+    case Droid_e
+    case Droid_se
+    case Droid_s
+    case Droid_sw
+    case Droid_w
+    case Droid_nw
     
     var description:String {
         switch self {
@@ -58,6 +66,22 @@ enum Tile: Int {
             return "Wall West"
         case Wall_nw:
             return "Wall North West"
+        case Droid_n:
+            return "Droid North"
+        case Droid_ne:
+            return "Droid North East"
+        case Droid_e:
+            return "Droid East"
+        case Droid_se:
+            return "Droid South East"
+        case Droid_s:
+            return "Droid South"
+        case Droid_sw:
+            return "Droid South West"
+        case Droid_w:
+            return "Droid West"
+        case Droid_nw:
+            return "Droid North West"
         }
     }
     
@@ -81,6 +105,22 @@ enum Tile: Int {
             return "wall_w"
         case Wall_nw:
             return "wall_nw"
+        case Droid_n:
+            return "droid_n"
+        case Droid_ne:
+            return "droid_ne"
+        case Droid_e:
+            return "droid_e"
+        case Droid_se:
+            return "droid_se"
+        case Droid_s:
+            return "droid_s"
+        case Droid_sw:
+            return "droid_sw"
+        case Droid_w:
+            return "droid_w"
+        case Droid_nw:
+            return "droid_nw"
         }
     } 
 }
@@ -100,7 +140,7 @@ class GameScene: SKScene {
     let tiles = [
         [8, 1, 1, 1, 1, 2],
         [7 ,0, 0, 0, 0, 3],
-        [7 ,0, 0, 0, 0, 3],
+        [7 ,0, 11, 0, 0, 3],
         [7 ,0, 0, 0, 0, 3],
         [7 ,0, 0, 0, 0, 3],
         [6, 5, 5, 5, 5, 4]
@@ -157,6 +197,10 @@ class GameScene: SKScene {
                 //2
                 var point = CGPoint(x: (j*tileSize.width), y: -(i*tileSize.height))
                 
+                if (tile == Tile.Droid_e) {
+                    placeTile2D((Tile.Ground.image), withPosition:point)
+                }
+                
                 placeTile2D(tile.image, withPosition:point)
             }
             
@@ -200,6 +244,10 @@ class GameScene: SKScene {
                     placeTileIso(("iso_3d_"+tile.image), withPosition:point)
                 }
                 */
+                
+                if (tile == Tile.Droid_e) {
+                    placeTileIso(("iso_3d_"+Tile.Ground.image), withPosition:point)
+                }
                 
                 placeTileIso(("iso_3d_"+tile.image), withPosition:point)
                 
