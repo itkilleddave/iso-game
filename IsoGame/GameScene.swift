@@ -160,10 +160,16 @@ class GameScene: SKScene {
     //5
     override func didMoveToView(view: SKView) {
         
+        let deviceScale = self.size.width/667
+        
         view2D.position = CGPoint(x:-self.size.width*0.45, y:self.size.height*0.17)
+        view2D.xScale = deviceScale
+        view2D.yScale = deviceScale
         addChild(view2D)
         
         viewIso.position = CGPoint(x:self.size.width*0.12, y:self.size.height*0.12)
+        viewIso.xScale = deviceScale
+        viewIso.yScale = deviceScale
         addChild(viewIso)
         
         placeAllTiles2D()
@@ -232,18 +238,6 @@ class GameScene: SKScene {
                 let tile = Tile(rawValue: tileInt)!
                 
                 var point = point2DToIso(CGPoint(x: (j*tileSize.width), y: -(i*tileSize.height)))
-                
-                /*
-                //1
-                let randomString = String(Int(arc4random_uniform(UInt32(4))))
-                
-                //2
-                if (tile == Tile.Ground) {
-                    placeTileIso(("iso_3d_"+tile.image+randomString), withPosition:point)
-                } else {
-                    placeTileIso(("iso_3d_"+tile.image), withPosition:point)
-                }
-                */
                 
                 if (tile == Tile.Droid_e) {
                     placeTileIso(("iso_3d_"+Tile.Ground.image), withPosition:point)
